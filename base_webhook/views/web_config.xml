@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="webhook_config_list_view" model="ir.ui.view">
+            <field name="name">webhook.config.list</field>
+            <field name="model">webhook.config</field>
+            <field name="arch" type="xml">
+                <list editable="bottom">
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="method"/>
+                    <field name="url"/>
+                    <field name="trigger_on_create"/>
+                    <field name="trigger_on_write"/>
+                    <field name="trigger_on_delete"/>
+                    <field name="bulk_boolean"/>
+                    <field name="body_method_name"/>
+                    <field name="alias"/>
+                    <field name="active" widget="toggle_button"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="webhook_config_search_view" model="ir.ui.view">
+            <field name="name">webhook.config.search</field>
+            <field name="model">webhook.config</field>
+            <field name="arch" type="xml">
+                <search string="Webhook Config">
+                    <group expand="1" string="Group By">
+                        <filter string="method" name="method" domain="[]"
+                                context="{'group_by':'method'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="webhook_config_act_window" model="ir.actions.act_window">
+            <field name="name">Webhook Config</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">webhook.config</field>
+            <field name="view_mode">list</field>
+        </record>
+
+        <menuitem name="Webhook Config"
+                  id="webhook_config_menu"
+                  parent="base_rest.menu_rest_api_root"
+                  action="webhook_config_act_window"/>
+
+</odoo>

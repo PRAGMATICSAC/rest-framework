@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="base_rest_webhook_form_inherit" model="ir.ui.view">
+        <field name="name">base.rest.webhook.form.inherit</field>
+        <field name="model">rest.log</field>
+        <field name="inherit_id" ref="rest_log.rest_log_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='request_method']" position="after">
+                <field name="model" readonly="1"/>
+                <field name="record_id" readonly="1"/>
+                <field name="resource_ref" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
