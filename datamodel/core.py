@@ -409,9 +409,12 @@ class DataModelFactory(object):
 
         @classmethod
         def __get_schema_class__(cls, **kwargs):
-            cls = cls.__schema_class__(**kwargs)
-            cls._env = self.env
-            return cls
+            context = kwargs.pop('context', None)
+            schema_instance = cls.__schema_class__(**kwargs)
+            if context is not None:
+                schema_instance.context = context
+            schema_instance._env = self.env
+            return schema_instance
 
         model.__get_schema_class__ = __get_schema_class__
         return model
