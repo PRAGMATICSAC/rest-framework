@@ -3,18 +3,17 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "API Log",
-    "version": "18.0.1.0.1",
+    "name": "Fastapi Captcha",
+    "version": "18.0.1.0.0",
     "author": "Akretion, Odoo Community Association (OCA)",
-    "license": "AGPL-3",
-    "summary": "Log API requests in database",
+    "summary": "Add a captcha to your FastAPI routes",
     "category": "Tools",
-    "depends": ["web"],
+    "depends": ["fastapi"],
     "website": "https://github.com/OCA/rest-framework",
     "data": [
-        "security/res_groups.xml",
-        "security/ir_model_access.xml",
-        "views/api_log_views.xml",
+        "views/fastapi_endpoint_views.xml",
     ],
     "maintainers": ["paradoxxxzero"],
+    "installable": True,
+    "license": "AGPL-3",
 }
