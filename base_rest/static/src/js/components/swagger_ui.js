@@ -62,6 +62,9 @@ class SwaggerUI extends Component {
 
     whenReady(() => {
         const swaggerUiEl = document.getElementById("swagger-ui");
+        if (!swaggerUiEl) {
+            return;
+        }
         const settings = JSON.parse(swaggerUiEl.getAttribute("data-settings") || "{}");
         mount(SwaggerUI, swaggerUiEl, {props: {settings: settings}});
     });
